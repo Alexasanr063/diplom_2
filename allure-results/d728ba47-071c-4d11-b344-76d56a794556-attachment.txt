@@ -1,0 +1,2 @@
+TestUser
+{'success': True, 'user': {'email': 'test959109@yandex.ru', 'name': 'САНЕК'}}

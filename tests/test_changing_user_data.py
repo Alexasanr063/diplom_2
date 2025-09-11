@@ -10,14 +10,12 @@ class TestUserChanging(BaseTest):
         response = requests.get(Data.name_3, headers=headers)
         assert response.status_code==200
         assert response.json()['user']['name'] == self.name
-        print(response.json()['user']['name'])
 
-        response = requests.patch(Data.name_3,headers=headers,json=Data.data_for_new_user2)
-        print(response.json())
+        response = requests.patch(Data.name_3, headers=headers, json=Data.DATAUSER2)
         assert response.status_code == 200
         assert response.json()['user']['name'] == 'САНЕК'
 
     def test_user_changing_no_registration(self):
-        response = requests.patch(Data.name_3, json=Data.data_for_new_user2)
+        response = requests.patch(Data.name_3, json=Data.DATAUSER2)
         assert response.status_code == 401
         assert response.json()['message'] == 'You should be authorised'
